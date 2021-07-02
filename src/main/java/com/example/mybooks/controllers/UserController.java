@@ -5,6 +5,8 @@ import com.example.mybooks.model.User;
 import com.example.mybooks.service.UserBookService;
 import com.example.mybooks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +32,10 @@ public class UserController
     }
 
     @PostMapping("/users")
-    public void newUser(@RequestBody User user)
+    public ResponseEntity<String> newUser(@RequestBody User user)
     {
          userService.save(user);
+         return new ResponseEntity<>("8080/users/" + user.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/users/{id}")
