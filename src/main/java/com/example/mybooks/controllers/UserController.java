@@ -1,5 +1,6 @@
 package com.example.mybooks.controllers;
 
+import com.example.mybooks.exceptions.UserNotFoundException;
 import com.example.mybooks.model.Book;
 import com.example.mybooks.model.User;
 import com.example.mybooks.service.UserBookService;
@@ -41,7 +42,11 @@ public class UserController
     @GetMapping("/users/{id}")
     public Optional<User> findUser(@PathVariable Integer id)
     {
-        return userService.findById(id);
+        Optional<User> user = userService.findById(id);
+        if(user.isPresent())
+            return user;
+
+        throw new UserNotFoundException("id-" + id);
     }
 
     @PostMapping("/users/{id}/books")
