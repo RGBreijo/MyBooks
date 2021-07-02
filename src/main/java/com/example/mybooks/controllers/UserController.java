@@ -49,8 +49,8 @@ public class UserController
         throw new UserNotFoundException("id-" + id);
     }
 
-    @PostMapping("/users/{id}/books")
-    public void findUser(@PathVariable Integer id, @RequestBody Book book)
+    @PostMapping("/users/{id}")
+    public void addBook(@PathVariable Integer id, @RequestBody Book book)
     {
         userBookService.userBook(id, book);
     }
