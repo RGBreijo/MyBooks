@@ -11,6 +11,7 @@ public class Book
 
     private String title;
     private String author;
+    private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -35,19 +36,22 @@ public class Book
         this.author = author;
     }
 
+    public String getNotes()
+    {
+        return notes;
+    }
+
+    public void setNotes(String description)
+    {
+        this.notes = description;
+    }
+
     public void setUser(User user)
     {
         this.user = user;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", Author='" + author + '\'' +
-                ", user=" + user.getUsername() +
-                '}';
-    }
+
+
+
 }
