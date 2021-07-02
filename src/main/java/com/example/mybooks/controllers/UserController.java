@@ -50,8 +50,9 @@ public class UserController
     }
 
     @PostMapping("/users/{id}")
-    public void addBook(@PathVariable Integer id, @RequestBody Book book)
+    public ResponseEntity<String> addBook(@PathVariable Integer id, @RequestBody Book book)
     {
         userBookService.userBook(id, book);
+        return new ResponseEntity<>("8080/users/" + id, HttpStatus.CREATED);
     }
 }
