@@ -10,7 +10,7 @@ public class Book
     private Integer id;
 
     private String title;
-    private String Author;
+    private String author;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -27,12 +27,12 @@ public class Book
 
     public String getAuthor()
     {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author)
     {
-        Author = author;
+        this.author = author;
     }
 
     public void setUser(User user)
@@ -46,7 +46,7 @@ public class Book
         return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", Author='" + Author + '\'' +
+                ", Author='" + author + '\'' +
                 ", user=" + user.getUsername() +
                 '}';
     }

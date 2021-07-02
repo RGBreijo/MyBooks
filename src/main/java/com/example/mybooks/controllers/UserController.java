@@ -41,7 +41,7 @@ public class UserController
         return userService.findById(id);
     }
 
-    @PostMapping("/users/{id}/book")
+    @PostMapping("/users/{id}/books")
     public void findUser(@PathVariable Integer id, @RequestBody Book book)
     {
         userBookService.userBook(id, book);
