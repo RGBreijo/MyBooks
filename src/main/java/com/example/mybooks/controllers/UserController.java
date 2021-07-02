@@ -40,13 +40,9 @@ public class UserController
     }
 
     @GetMapping("/users/{id}")
-    public Optional<User> findUser(@PathVariable Integer id)
+    public User findUser(@PathVariable Integer id)
     {
-        Optional<User> user = userService.findById(id);
-        if(user.isPresent())
-            return user;
-
-        throw new UserNotFoundException("id-" + id);
+        return userService.findById(id).orElseThrow(() -> new UserNotFoundException("id - " + id));
     }
 
     @PostMapping("/users/{id}")
