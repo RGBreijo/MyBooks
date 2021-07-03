@@ -6,14 +6,104 @@
     margin: 5%;
 }
 
-.new-user{
-    display: grid;
-    grid-template-columns: 20% 80%;
-    row-gap: 10px;
-}
 
 .user {
     display: grid;
     grid-template-columns: 20% 70% 10%;
 }
 
+
+.two-col
+{
+    background-color: #EDEFF3;
+    padding: 2em;
+}
+
+.defaultBlock
+{
+    background-color: white;
+    padding: 1em 1em 0 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+
+}
+
+.blockHeading
+{
+    text-align: center;
+}
+
+.blockHeading h2
+{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.userContainer
+{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+
+}
+
+.userContainer input
+{
+    display: block;
+}
+
+.form
+{
+    display: block;
+
+}
+
+.createUserContainer
+{
+    background-color: blue;
+}
+
+
+.userContentContainer{
+    background-color: green;
+}
+
+.btnContainer
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+    background-color: #F3F4F6;
+    margin-left: -1em;
+    margin-right: -1em;
+    margin-top: 2em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.defaultBtn
+{
+    background-color: #0D6EE1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em;
+    width: 100px;
+}
+
+.defaultBtn:hover
+{
+    background-color: rgb(43, 138, 255);
+}
+
+#username
+{
+    max-width: 300px;
+}
+
+.seperator
+{
+    color: grey;
+    margin-left: -1em;
+    margin-right: -1em;
+}
