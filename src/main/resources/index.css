@@ -1,3 +1,4 @@
+
 .two-col{
     display: grid;
     grid-template-columns: 48% 48%;
@@ -15,3 +16,4 @@
     display: grid;
     grid-template-columns: 20% 70% 10%;
 }
+
