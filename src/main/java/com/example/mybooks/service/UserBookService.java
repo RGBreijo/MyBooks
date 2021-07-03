@@ -30,6 +30,13 @@ public class UserBookService
                 book.setDescription(new OpenLibService().bookDescription(book.getTitle()));
             }
 
+            if(book.getAuthor() == null)
+            {
+                book.setAuthor(new OpenLibService().bookAuthors(book.getTitle()));
+            }
+
+
+
             User user = userRepository.findById(userId).get();
             user.getBooks().add(book);
             book.setUser(user);

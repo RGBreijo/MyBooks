@@ -1,10 +1,14 @@
 package com.example.mybooks.service;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -36,6 +40,34 @@ public class OpenLibService
         return (String) description;
     }
 
+    private String getBookAuthor(JSONObject bookInfoItemJson) throws JSONException
+    {
+        JSONArray authors = bookInfoItemJson.getJSONObject("volumeInfo").getJSONArray("authors");
+
+        List<String> authorList = new ArrayList<>();
+
+        for(int i = 0; i< authors.length(); i++)
+        {
+            authorList.add(authors.getString(i));
+        }
+
+        StringBuilder authorsStringBuilder = new StringBuilder();
+
+        for(int i = 0; i < authorList.size(); i++)
+        {
+            if(i != authorList.size() - 1)
+            {
+                authorsStringBuilder.append(authorList.get(i)).append(", ");
+            }else
+            {
+                authorsStringBuilder.append(authorList.get(i)).append(" ");
+            }
+        }
+
+        return authorsStringBuilder.toString();
+    }
+
+
     public String bookDescription(String bookName)
     {
         try
@@ -47,6 +79,22 @@ public class OpenLibService
         {
            return "";
         }
+    }
+
+
+    public String bookAuthors(String bookName)
+    {
+        try
+        {
+            JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
+            return getBookAuthor(bookInfo);
+
+        }catch(JSONException e)
+        {
+            return "";
+        }
+
+
     }
 
 }

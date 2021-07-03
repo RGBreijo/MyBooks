@@ -11,11 +11,13 @@ public class Book
     private Integer id;
 
     private String title;
-    private String author;
     private String notes;
 
     @Column(length = 10000)
     private String description;
+
+    @Column(length = 500)
+    private String author;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
