@@ -1,4 +1,12 @@
+body, h1, h2, p{
 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .two-col{
     display: grid;
     grid-template-columns: 48% 48%;
@@ -17,6 +25,7 @@
 {
     background-color: #EDEFF3;
     padding: 2em;
+    border-radius: 5px;
 }
 
 .defaultBlock
@@ -38,13 +47,13 @@
 {
     font-size: 1.5em;
     margin-bottom: 1em;
+    padding: 0;
 }
 
 .userContainer
 {
     display: flex;
     flex-direction: column;
-    background-color: blue;
 
 }
 
@@ -57,11 +66,6 @@
 {
     display: block;
 
-}
-
-.createUserContainer
-{
-    background-color: blue;
 }
 
 
@@ -106,4 +110,15 @@
     color: grey;
     margin-left: -1em;
     margin-right: -1em;
+}
+
+label
+{
+    margin-top: 10px;
+}
+
+.logoContainer
+{
+    padding-top: 1em;
+    padding-left: 2em;
 }
