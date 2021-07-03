@@ -20,10 +20,16 @@ public class UserBookService
         this.userRepository = userRepository;
     }
 
+
     public void userBook(Integer userId, Book book)
     {
         if(userRepository.findById(userId).isPresent())
         {
+            if(book.getDescription() == null)
+            {
+                book.setDescription(new OpenLibService().bookDescription(book.getTitle()));
+            }
+
             User user = userRepository.findById(userId).get();
             user.getBooks().add(book);
             book.setUser(user);

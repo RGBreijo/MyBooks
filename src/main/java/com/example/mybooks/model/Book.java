@@ -14,6 +14,9 @@ public class Book
     private String author;
     private String notes;
 
+    @Column(length = 10000)
+    private String description;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
@@ -45,6 +48,16 @@ public class Book
     public void setNotes(String description)
     {
         this.notes = description;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
     }
 
     public void setUser(User user)

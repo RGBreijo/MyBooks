@@ -3,7 +3,6 @@ package com.example.mybooks.controllers;
 import com.example.mybooks.exceptions.UserNotFoundException;
 import com.example.mybooks.model.Book;
 import com.example.mybooks.model.User;
-import com.example.mybooks.service.OpenLibService;
 import com.example.mybooks.service.UserBookService;
 import com.example.mybooks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController
 {
     UserService userService;
     UserBookService userBookService;
+
 
     @Autowired
     public UserController(UserService userService, UserBookService userBookService)
@@ -53,10 +52,4 @@ public class UserController
         return new ResponseEntity<>("8080/users/" + id, HttpStatus.CREATED);
     }
 
-    @GetMapping("/test")
-    public void test()
-    {
-        OpenLibService openLibService = new OpenLibService();
-        openLibService.test();
-    }
 }
