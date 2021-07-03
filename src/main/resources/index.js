@@ -24,7 +24,7 @@ function createNewBook(e){
     }
 
     // We split the 
-    fetch("http://localhost:8080/users/1/books", 
+    fetch("http://localhost:8080/users/1",
         {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
