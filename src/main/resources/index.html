@@ -44,20 +44,26 @@
 
 
 
+        <div class="defaultBlock">
+            <div class="blockHeading">
+                <h2>Add Book</h2>
+                <hr class="seperator">
+            </div>
+            <form class="new-book">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title">
 
-        <h2>New Book</h2>
-        <form class="new-book">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author">
 
-            <label for="author" class="form-label">Author</label>
-            <input type="text" class="form-control" id="author">
+                <label for="notes" class="form-label">Notes</label>
+                <input type="text" class="form-control" id="notes">
 
-            <label for="notes" class="form-label">Notes</label>
-            <input type="text" class="form-control" id="notes">
-
-            <input type="submit" onclick="createNewBook(event)">
-        </form>
+                <div class="btnContainer">
+                    <input type="submit"  class = "defaultBtn" onclick="createNewBook(event)">
+                </div>
+            </form>
+        </div>
 
 
 
