@@ -23,7 +23,7 @@ function createNewBook(e){
         notes: document.getElementById("notes").value
     }
 
-    // We split the 
+    // We split the
     fetch("http://localhost:8080/users/1",
         {
             method: 'POST',
@@ -101,18 +101,7 @@ function testPictures(value)
 }
 
 
-// not being used
-function testContainer(user)
-{
-    var temp = ""
 
-    for (let tempElement of user.books)
-    {
-        temp += '<div class="bookInfoContainer"> <div> ' + testPictures(user.books) + '</div> <div class="generalInfoContainer">' + bookToString(user.books) + '</div> <br> </div>'
-    }
-
-    return temp
-}
 
 
 {
@@ -128,7 +117,7 @@ async function getAllUsers(){
     let users = body.map(user => {
         return (
             `<div class = "userList" >
-                <p>${"ID: " + user.id + "<br>" + user.username}</p>
+                <p> <span class="username">${user.username}</span> Id: ${user.id}</p>
 
                 <div class="bookInfoContainer"> 
                     <div> 

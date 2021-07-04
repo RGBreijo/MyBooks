@@ -182,3 +182,11 @@ footer
 {
     margin-bottom: 125px;
 }
+
+.username
+{
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.3em;
+    color: #060B11;
+}
