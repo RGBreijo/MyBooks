@@ -72,26 +72,26 @@ function bookToString(value) {
 
     for (let tempElement of value)
     {
-        temp += '<div class="oneBookContainer"> <div class="bookTitle">' + tempElement.title + '</div>' + " <br> " + tempElement.author + ' <br> <span class="bookDescription"> Description </span>' + ' <br> <div class="descriptionContainer">' + tempElement.description + '</div> </div>'
+        temp += '<div class="oneBookContainer"> <div class="bookTitle">' + tempElement.title + '</div>' + " <br> " + tempElement.author + ' <br> <span class="bookDescription"> Description </span>' + ' <br> <div class="descriptionContainer">' + tempElement.description + '</div>  <span class="noteHeader"> <b>Notes</b></span> <br> <div class="notes">' + tempElement.notes + '</div> </div>'
     }
     return temp;
 }
 
 
 
-function testPicture(value)
+function bookNotes(value)
 {
     var temp = ""
 
     for (let tempElement of value)
     {
-        temp += tempElement.bookCoverLink
+        temp += tempElement.notes
     }
 
     return temp
 }
 
-// {/* <img src=${testPicture(user.books)} height = 150px; alt=""> */}
+
 function testPictures(value)
 {
     var temp = ""
@@ -105,12 +105,6 @@ function testPictures(value)
 }
 
 
-
-
-
-{
-
-    /* <img src=${testPicture(user.books)} height = 150px; alt=""> */}
 
 async function getAllUsers(){
 
@@ -133,7 +127,6 @@ async function getAllUsers(){
                     </div>
                     <br>
                 </div> 
- 
              
             </div>`
 

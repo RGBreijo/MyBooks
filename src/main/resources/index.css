@@ -157,6 +157,7 @@ footer
     font-size: 1.2em;
     text-transform: capitalize;
     margin-bottom: -1em;
+    color: #212529;
 }
 
 .bookDescription
@@ -164,23 +165,21 @@ footer
     margin-top: 0.7em;
     margin-bottom: -1em;
     display: block;
+    font-weight: bold;
+    color: rgb(32, 32, 32);
 }
 
 .descriptionContainer
 {
     overflow: scroll;
-    height: 140px;
+    height: 130px;
 }
 
-.oneBookContainer
-{
-    margin-bottom: 2em;
-}
 
 /* This value was given by viewing changes to pixels  */
 .pictureSpace
 {
-    margin-bottom: 125px;
+    margin-bottom: 160px;
 }
 
 .username
@@ -188,5 +187,27 @@ footer
     font-weight: bold;
     text-transform: capitalize;
     font-size: 1.3em;
-    color: #060B11;
+    color: #212529;
+}
+
+
+.noteContainer
+{
+    height: 120px;
+    overflow: scroll;
+}
+
+.actualNotes
+{
+    margin-bottom: 1em;
+}
+
+.notes
+{
+    height: 50px;
+}
+
+.noteHeader
+{
+
 }
