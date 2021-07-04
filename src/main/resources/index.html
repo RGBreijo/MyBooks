@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MyBooks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -20,11 +20,23 @@
     <div>
         <h2>User List</h2>
         <ul class="list-group" id="users"></ul>
-        <ul class="list-group" id="books"></ul>
+        <div class="userInfoTopContainer">
+            <div>
+                <ul class="list-group" id="books"></ul>
+            </div>
+
+        </div>
         <form class="mt-5">
             <button onclick="deleteAll(event)">Clear</button>
         </form>
     </div>
+
+
+
+
+
+
+
     <div>
         <div class="defaultBlock">
 
@@ -80,4 +92,6 @@
 </footer>
 <script src="index.js"></script>
 </body>
+
 </html>
+

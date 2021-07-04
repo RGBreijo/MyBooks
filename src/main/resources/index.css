@@ -129,3 +129,56 @@ footer
     background-color: #23273F;
     height: 150px;
 }
+
+
+.userList
+{
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.bookInfoContainer
+{
+    display: flex;
+
+}
+
+.generalInfoContainer
+{
+    margin-left: 10px;
+    margin-bottom: 1em;
+}
+
+.bookTitle
+{
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    margin-bottom: -1em;
+}
+
+.bookDescription
+{
+    margin-top: 0.7em;
+    margin-bottom: -1em;
+    display: block;
+}
+
+.descriptionContainer
+{
+    overflow: scroll;
+    height: 140px;
+}
+
+.oneBookContainer
+{
+    margin-bottom: 2em;
+}
+
+/* This value was given by viewing changes to pixels  */
+.pictureSpace
+{
+    margin-bottom: 125px;
+}

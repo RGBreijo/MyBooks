@@ -5,7 +5,7 @@ function createNewUser(e){
         //books: document.getElementById("books").value
     }
 
-    fetch("http://localhost:8080/users", 
+    fetch("http://localhost:8080/users",
         {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
@@ -37,12 +37,12 @@ function createNewBook(e){
 function deleteAll(e){
     e.preventDefault();
 
-    fetch("http://localhost:8080/expenses", 
-    {
-        method: 'DELETE',
-        headers: {'Content-Type': 'application/json',},
-    }
-).then(()=>window.location.reload(true))
+    fetch("http://localhost:8080/expenses",
+        {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json',},
+        }
+    ).then(()=>window.location.reload(true))
 }
 
 // function replacer(key, value) {
@@ -64,27 +64,85 @@ function deleteAll(e){
 // }
 
 function bookToString(value) {
-    var temp = "Books:<br>"
+    var temp = ""
 
-    for (let tempElement of value) {
-        temp += "- " + tempElement.title + " by " + tempElement.author + "<br>"
+    for (let tempElement of value)
+    {
+        temp += '<div class="oneBookContainer"> <div class="bookTitle">' + tempElement.title + '</div>' + " <br> " + tempElement.author + ' <br> <span class="bookDescription"> Description </span>' + ' <br> <div class="descriptionContainer">' + tempElement.description + '</div> </div>'
     }
-
-
     return temp;
 }
+
+
+
+function testPicture(value)
+{
+    var temp = ""
+
+    for (let tempElement of value)
+    {
+        temp += tempElement.bookCoverLink
+    }
+
+    return temp
+}
+
+// {/* <img src=${testPicture(user.books)} height = 150px; alt=""> */}
+function testPictures(value)
+{
+    var temp = ""
+
+    for (let tempElement of value)
+    {
+        temp += '<img class="pictureSpace" src="' + tempElement.bookCoverLink + '" height = 150px; alt="">'
+    }
+
+    return temp
+}
+
+
+// not being used
+function testContainer(user)
+{
+    var temp = ""
+
+    for (let tempElement of user.books)
+    {
+        temp += '<div class="bookInfoContainer"> <div> ' + testPictures(user.books) + '</div> <div class="generalInfoContainer">' + bookToString(user.books) + '</div> <br> </div>'
+    }
+
+    return temp
+}
+
+
+{
+
+    /* <img src=${testPicture(user.books)} height = 150px; alt=""> */}
 
 async function getAllUsers(){
 
     let response = await fetch("http://localhost:8080/users");
     let body = await response.json();
-    
+
+    console.log(body);
     let users = body.map(user => {
         return (
-            `<li class="list-group-item user">
+            `<div class = "userList" >
                 <p>${"ID: " + user.id + "<br>" + user.username}</p>
-                <p>${bookToString(user.books)}</p>
-            </li>`
+
+                <div class="bookInfoContainer"> 
+                    <div> 
+                        ${testPictures(user.books)}
+                    </div> 
+
+                    <div class="generalInfoContainer"> 
+                        ${bookToString(user.books)}
+                    </div>
+                    <br>
+                </div> 
+ 
+             
+            </div>`
 
             // <p>${user.id}</p> - Place this ^ to show IDs
             // <p>${JSON.stringify(user.books, replacer )}</p>
