@@ -23,8 +23,9 @@ function createNewBook(e){
         notes: document.getElementById("notes").value
     }
 
-    // We split the 
-    fetch("http://localhost:8080/users/1",
+    // We split the
+    var idNum = document.getElementById("id").value
+    fetch("http://localhost:8080/users/" + idNum,
         {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
