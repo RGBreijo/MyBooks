@@ -45,6 +45,35 @@ function deleteAll(e){
 ).then(()=>window.location.reload(true))
 }
 
+// function replacer(key, value) {
+//     // Filtering out properties
+//     // if (typeof value === 'string') {
+//     //     return undefined;
+//     // }
+//
+//     var temp = ""
+//
+//     //
+//
+//     for (let tempElement of value) {
+//         temp += "<br>" + tempElement.title + " by " + tempElement.author
+//     }
+//
+//
+//     return temp;
+// }
+
+function bookToString(value) {
+    var temp = "Books:<br>"
+
+    for (let tempElement of value) {
+        temp += "- " + tempElement.title + " by " + tempElement.author + "<br>"
+    }
+
+
+    return temp;
+}
+
 async function getAllUsers(){
 
     let response = await fetch("http://localhost:8080/users");
@@ -53,11 +82,12 @@ async function getAllUsers(){
     let users = body.map(user => {
         return (
             `<li class="list-group-item user">
-                <p>${user.username}</p>
-                <p>${JSON.stringify(user.books)}</p>
+                <p>${"ID: " + user.id + "<br>" + user.username}</p>
+                <p>${bookToString(user.books)}</p>
             </li>`
 
             // <p>${user.id}</p> - Place this ^ to show IDs
+            // <p>${JSON.stringify(user.books, replacer )}</p>
 
         );
     }).join("");
