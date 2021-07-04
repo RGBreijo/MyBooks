@@ -181,7 +181,7 @@ footer
 /* This value was given by viewing changes to pixels  */
 .pictureSpace
 {
-    margin-bottom: 160px;
+    margin-bottom: 180px;
 }
 
 .username
@@ -208,5 +208,6 @@ footer
 {
     height: 50px;
     overflow: scroll;
+    margin-bottom: 1.2em;
 }
 
