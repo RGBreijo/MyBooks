@@ -40,6 +40,15 @@ public class OpenLibService
         return (String) description;
     }
 
+    private String getBookCover(JSONObject bookInfoItemJson) throws JSONException
+    {
+        Object bookCover = bookInfoItemJson.getJSONObject("volumeInfo").getJSONObject("imageLinks").get("thumbnail");
+        return (String) bookCover;
+    }
+
+
+
+
     private String getBookAuthor(JSONObject bookInfoItemJson) throws JSONException
     {
         JSONArray authors = bookInfoItemJson.getJSONObject("volumeInfo").getJSONArray("authors");
@@ -64,8 +73,12 @@ public class OpenLibService
             }
         }
 
+        getBookCover(bookInfoItemJson);
+
         return authorsStringBuilder.toString();
     }
+
+
 
 
     public String bookDescription(String bookName)
@@ -93,8 +106,20 @@ public class OpenLibService
         {
             return "";
         }
-
-
     }
+
+    public String bookCover(String bookName)
+    {
+        try
+        {
+            JSONObject bookCover = cleanBookApi(googleBookApi(bookName));
+            return getBookCover(bookCover);
+
+        }catch(JSONException e)
+        {
+            return "";
+        }
+    }
+
 
 }

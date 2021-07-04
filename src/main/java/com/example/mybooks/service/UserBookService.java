@@ -25,14 +25,19 @@ public class UserBookService
     {
         if(userRepository.findById(userId).isPresent())
         {
-            if(book.getDescription() == null)
+            if(book.getDescription() == null || book.getDescription().equals(""))
             {
                 book.setDescription(new OpenLibService().bookDescription(book.getTitle()));
             }
 
-            if(book.getAuthor() == null)
+            if(book.getAuthor() == null || book.getAuthor().equals(""))
             {
                 book.setAuthor(new OpenLibService().bookAuthors(book.getTitle()));
+            }
+
+            if(book.getBookCoverLink() == null || book.getBookCoverLink().equals(""))
+            {
+                book.setBookCoverLink(new OpenLibService().bookCover(book.getTitle()));
             }
 
 

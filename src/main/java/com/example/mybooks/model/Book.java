@@ -19,6 +19,9 @@ public class Book
     @Column(length = 500)
     private String author;
 
+    @Column(length = 500)
+    private String bookCoverLink;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
@@ -67,6 +70,15 @@ public class Book
         this.user = user;
     }
 
+    public String getBookCoverLink()
+    {
+        return bookCoverLink;
+    }
+
+    public void setBookCoverLink(String bookCoverLink)
+    {
+        this.bookCoverLink = bookCoverLink;
+    }
 
     @Override
     public String toString()
