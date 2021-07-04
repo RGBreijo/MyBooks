@@ -35,6 +35,7 @@ body, h1, h2, p{
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 2em;
+    max-width: 600px;
 
 }
 
@@ -121,4 +122,10 @@ label
 {
     padding-top: 1em;
     padding-left: 2em;
+}
+
+footer
+{
+    background-color: #23273F;
+    height: 150px;
 }
