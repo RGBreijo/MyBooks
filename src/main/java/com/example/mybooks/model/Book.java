@@ -52,6 +52,10 @@ public class Book
         this.user = user;
     }
 
+    public Integer getId(){
+        return id;
+    }
+
 
     @Override
     public String toString()
