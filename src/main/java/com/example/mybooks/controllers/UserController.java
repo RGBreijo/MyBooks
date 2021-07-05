@@ -54,9 +54,11 @@ public class UserController
         return new ResponseEntity<>("8080/users/" + id, HttpStatus.CREATED);
     }
 
+    @Transactional
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable Integer id){
-        userService.deleteById(id);
+        userBookService.deleteAllbyId(id);
+        //userService.deleteById(id);
     }
 
     @Transactional
