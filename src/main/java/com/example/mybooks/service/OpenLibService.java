@@ -117,7 +117,7 @@ public class OpenLibService
 
         }catch(JSONException e)
         {
-            return "";
+            return "https://mrb.imgix.net/assets/default-book.png";
         }
     }
 
