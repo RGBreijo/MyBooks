@@ -70,6 +70,10 @@ public class Book
         this.user = user;
     }
 
+    public Integer getId(){
+        return id;
+    }
+
     public String getBookCoverLink()
     {
         return bookCoverLink;

@@ -7,6 +7,8 @@ import com.example.mybooks.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserBookService
 {
@@ -48,6 +50,22 @@ public class UserBookService
 
             userRepository.save(user);
             bookRepository.save(book);
+        }
+    }
+
+    public void deleteByTitle(Integer userId, String title){
+        if(userRepository.findById(userId).isPresent())
+        {
+
+            Integer bookId = 0;
+            List<Book> books = userRepository.findById(userId).get().getBooks();
+            for (Book b: books) {
+                if(b.getTitle().equals(title)){
+                    bookId = b.getId();
+                }
+            }
+            bookRepository.deleteById(bookId);
+
         }
     }
 }

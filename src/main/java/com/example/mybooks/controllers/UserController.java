@@ -6,6 +6,7 @@ import com.example.mybooks.model.User;
 import com.example.mybooks.service.UserBookService;
 import com.example.mybooks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,4 +54,15 @@ public class UserController
         return new ResponseEntity<>("8080/users/" + id, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable Integer id){
+        userService.deleteById(id);
+    }
+
+    @Transactional
+    @DeleteMapping("users/{id}/{book}")
+    public void deleteBook(@PathVariable Integer id, @PathVariable String book){
+        userBookService.deleteByTitle(id, book);
+        //userService.findById(id).map(Book -> userBookService.deleteByTitle(id, book))
+    }
 }
