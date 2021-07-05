@@ -68,4 +68,16 @@ public class UserBookService
 
         }
     }
+
+    public void deleteAllbyId(Integer id){
+        if(userRepository.findById(id).isPresent()) {
+            List<Book> books = userRepository.findById(id).get().getBooks();
+            for (Book b : books) {
+                bookRepository.deleteById(b.getId());
+            }
+        }
+
+        userRepository.deleteById(id);
+    }
+
 }
