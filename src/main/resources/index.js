@@ -2,7 +2,6 @@ function createNewUser(e){
     e.preventDefault();
     let user = {
         username: document.getElementById("username").value,
-        //books: document.getElementById("books").value
     }
 
     fetch("http://localhost:8080/users",
@@ -22,7 +21,6 @@ function createNewBook(e){
         notes: document.getElementById("notes").value
     }
 
-    // We split the
     var idNum = document.getElementById("userId").value
     fetch("http://localhost:8080/users/" + idNum,
         {
@@ -33,9 +31,6 @@ function createNewBook(e){
     ).then(()=>window.location.reload(true))
 
 }
-
-
-
 
 function deleteUser(e){
     e.preventDefault();
@@ -48,7 +43,6 @@ function deleteUser(e){
         }
     ).then(()=>window.location.reload(true))
 }
-
 
 function deleteBook(e){
     e.preventDefault();
@@ -63,24 +57,6 @@ function deleteBook(e){
     ).then(()=>window.location.reload(true))
 }
 
-// function replacer(key, value) {
-//     // Filtering out properties
-//     // if (typeof value === 'string') {
-//     //     return undefined;
-//     // }
-//
-//     var temp = ""
-//
-//     //
-//
-//     for (let tempElement of value) {
-//         temp += "<br>" + tempElement.title + " by " + tempElement.author
-//     }
-//
-//
-//     return temp;
-// }
-
 function bookToString(value) {
     var temp = ""
 
@@ -90,21 +66,6 @@ function bookToString(value) {
     }
     return temp;
 }
-
-
-
-function bookNotes(value)
-{
-    var temp = ""
-
-    for (let tempElement of value)
-    {
-        temp += tempElement.notes
-    }
-
-    return temp
-}
-
 
 function testPictures(value)
 {
@@ -118,15 +79,15 @@ function testPictures(value)
     return temp
 }
 
-
-
 async function getAllUsers(){
 
     let response = await fetch("http://localhost:8080/users");
     let body = await response.json();
 
     console.log(body);
-    let users = body.map(user => {
+
+    // Intellj suggested using an inline variable instead of doing user and setting it to another var later
+    document.getElementById("users").innerHTML = body.map(user => {
         return (
             `<div class = "userList" >
                 <p> <span class="username">${user.username}</span> Id: ${user.id}</p>
@@ -141,29 +102,9 @@ async function getAllUsers(){
                     </div>
                     <br>
                 </div> 
-             
             </div>`
-
-            // <p>${user.id}</p> - Place this ^ to show IDs
-            // <p>${JSON.stringify(user.books, replacer )}</p>
-
         );
     }).join("");
-
-    // let books = body.map(book => {
-    //     return (
-    //         `<li class="list-group-item book">
-    //             <p>${book.title}</p>
-    //         </li>`
-    //     );
-    // }).join("");
-
-
-    document.getElementById("users").innerHTML = users;
-
-    // document.getElementById("books").innerHTML = books;
-
-
 }
 
 getAllUsers();
