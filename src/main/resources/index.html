@@ -76,13 +76,12 @@
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" placeholder="The Alchemist">
 
-                <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control" id="author" placeholder="Paulo Coelho">
-
                 <label for="notes" class="form-label">Notes</label>
                 <input type="text" class="form-control" id="notes">
 
                 <div class="btnContainer">
+                    <input type="submit"  class = "defaultBtn"  value = "Delete Book" onclick="deleteBook(event)">
+                    <input type="submit"  class = "defaultBtn"  value = "Delete User" onclick="deleteUser(event)">
                     <input type="submit"  class = "defaultBtn"  value = "Add" onclick="createNewBook(event)">
                 </div>
             </form>
