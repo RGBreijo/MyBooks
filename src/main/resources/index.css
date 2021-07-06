@@ -1,6 +1,7 @@
 body, h1, h2, p{
 
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
 #logo
@@ -211,3 +212,55 @@ footer
     margin-bottom: 1.2em;
 }
 
+.footerContainer
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    /* padding: 2.5em; */
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 2em;
+}
+
+.footerContainer p
+{
+    color: white;
+}
+
+.footerMiddle{
+    display: flex;
+    justify-content: center;
+    color: gray;
+    width: 100%;
+}
+
+.copyright
+{
+    opacity: 0.5;
+}
+
+.social
+{
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+}
+
+.social img
+{
+    padding: 0;
+    padding-right: 1em;
+}
+
+
+.finalFooterContent p{
+    display: block;
+}
+
+.copyrightContainer{
+    margin-top: 1em;
+    text-align: center;
+}

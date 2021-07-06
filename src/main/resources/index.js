@@ -19,7 +19,6 @@ function createNewBook(e){
     e.preventDefault();
     let book = {
         title: document.getElementById("title").value,
-        author: document.getElementById("author").value,
         notes: document.getElementById("notes").value
     }
 
