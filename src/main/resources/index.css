@@ -95,6 +95,7 @@ body, h1, h2, p{
     border-radius: 5px;
     padding: 0.3em;
     width: 100px;
+    margin-right: 1em;
 }
 
 .defaultBtn:hover
@@ -282,3 +283,4 @@ html {
 {
     width: 60px;
 }
+
