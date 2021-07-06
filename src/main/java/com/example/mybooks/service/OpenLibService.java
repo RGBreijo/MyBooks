@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class OpenLibService
 {
-
     private Mono<String> googleBookApi(String bookName)
     {
         final String API_KEY = "AIzaSyAIHh_8U23Sgm_Ac6o1gLHoSEoEkab4Koc";
@@ -26,7 +25,6 @@ public class OpenLibService
 
         return  webClient.get().uri(URI).retrieve().bodyToMono(String.class);
     }
-
 
     private JSONObject cleanBookApi(Mono<String> bookInfo) throws JSONException
     {
@@ -45,9 +43,6 @@ public class OpenLibService
         Object bookCover = bookInfoItemJson.getJSONObject("volumeInfo").getJSONObject("imageLinks").get("thumbnail");
         return (String) bookCover;
     }
-
-
-
 
     private String getBookAuthor(JSONObject bookInfoItemJson) throws JSONException
     {
@@ -78,29 +73,12 @@ public class OpenLibService
         return authorsStringBuilder.toString();
     }
 
-
-
-
-    public String bookDescription(String bookName)
+    public String bookDescription(JSONObject bookName)
     {
         try
         {
-            JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
-            return getBookDescription(bookInfo);
-
-        }catch(JSONException e)
-        {
-           return "";
-        }
-    }
-
-
-    public String bookAuthors(String bookName)
-    {
-        try
-        {
-            JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
-            return getBookAuthor(bookInfo);
+            //JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
+            return getBookDescription(bookName);
 
         }catch(JSONException e)
         {
@@ -108,17 +86,52 @@ public class OpenLibService
         }
     }
 
-    public String bookCover(String bookName)
+
+    public String bookAuthors(JSONObject bookName)
     {
         try
         {
-            JSONObject bookCover = cleanBookApi(googleBookApi(bookName));
-            return getBookCover(bookCover);
+            //JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
+            return getBookAuthor(bookName);
+
+        }catch(JSONException e)
+        {
+            return "";
+        }
+    }
+
+    public String bookCover(JSONObject bookName)
+    {
+        try
+        {
+            //JSONObject bookCover = cleanBookApi(googleBookApi(bookName));
+            return getBookCover(bookName);
 
         }catch(JSONException e)
         {
             return "https://mrb.imgix.net/assets/default-book.png";
         }
+    }
+
+    public String[] callApi(String bookName){
+
+        String[] descriptionAuthorCover = new String[3];
+
+        try
+        {
+            JSONObject aBook = cleanBookApi(googleBookApi(bookName));
+            descriptionAuthorCover[0] = bookDescription(aBook);
+            descriptionAuthorCover[1] = bookAuthors(aBook);
+            descriptionAuthorCover[2] = bookCover(aBook);
+
+        }catch(JSONException e)
+        {
+            descriptionAuthorCover[0] = "";
+            descriptionAuthorCover[1] = "";
+            descriptionAuthorCover[2] = "https://mrb.imgix.net/assets/default-book.png";
+        }
+
+        return descriptionAuthorCover;
     }
 
 
