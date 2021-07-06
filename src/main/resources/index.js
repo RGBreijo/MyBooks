@@ -1,3 +1,11 @@
+async function enableButton(){
+    if (document.getElementById("username").value === ""){
+        document.getElementById("createUserBtn").hidden = true;
+    } else{
+        document.getElementById("createUserBtn").hidden = false;
+    }
+}
+
 function createNewUser(e){
     e.preventDefault();
     let user = {
@@ -107,4 +115,5 @@ async function getAllUsers(){
     }).join("");
 }
 
+enableButton();
 getAllUsers();

@@ -43,11 +43,11 @@
                 <div>
                     <div>
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username">
+                        <input type="text" class="form-control" id="username" onchange="enableButton()">
                     </div>
 
                     <div class="btnContainer">
-                        <input type="submit" class = "defaultBtn" value="Create" onclick="createNewUser(event)">
+                        <input type="submit" class = "defaultBtn" value="Create" id="createUserBtn" onclick="createNewUser(event)">
                     </div>
 
                 </div>
