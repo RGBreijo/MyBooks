@@ -1,8 +1,11 @@
 package com.example.mybooks.client;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -14,16 +17,16 @@ import java.util.List;
 @Service
 public class OpenLibClient
 {
+
     private Mono<String> googleBookApi(String bookName)
     {
-        final String API_KEY = "AIzaSyAIHh_8U23Sgm_Ac6o1gLHoSEoEkab4Koc";
+        Dotenv dotenv = Dotenv.load();
+        final String API_KEY = dotenv.get("API_KEY");
 
         WebClient webClient = WebClient.create();
 
         String URI = "https://www.googleapis.com/books/v1/volumes?q=\"" + bookName +
                 "”&printType=books&key=" + API_KEY;
-
-        System.out.println(URI);
 
         return  webClient.get().uri(URI).retrieve().bodyToMono(String.class);
     }
