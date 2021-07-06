@@ -265,14 +265,12 @@ footer{
     text-align: center;
 }
 
-.user
-{
-    margin-bottom: 1em;
+html {
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-
-#userId
-{
-    width: 60px;
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
-
