@@ -75,44 +75,20 @@ public class OpenLibClient
         return authorsStringBuilder.toString();
     }
 
-    public String bookDescription(JSONObject bookName)
+    public String bookDescription(JSONObject bookName) throws JSONException
     {
-        try
-        {
-            //JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
-            return getBookDescription(bookName);
-
-        }catch(JSONException e)
-        {
-            return "";
-        }
+        return getBookDescription(bookName);
     }
 
 
-    public String bookAuthors(JSONObject bookName)
+    public String bookAuthors(JSONObject bookName) throws JSONException
     {
-        try
-        {
-            //JSONObject bookInfo = cleanBookApi(googleBookApi(bookName));
-            return getBookAuthor(bookName);
-
-        }catch(JSONException e)
-        {
-            return "";
-        }
+        return getBookAuthor(bookName);
     }
 
-    public String bookCover(JSONObject bookName)
+    public String bookCover(JSONObject bookName) throws JSONException
     {
-        try
-        {
-            //JSONObject bookCover = cleanBookApi(googleBookApi(bookName));
-            return getBookCover(bookName);
-
-        }catch(JSONException e)
-        {
-            return "https://mrb.imgix.net/assets/default-book.png";
-        }
+        return getBookCover(bookName);
     }
 
     public String[] callApi(String bookName){

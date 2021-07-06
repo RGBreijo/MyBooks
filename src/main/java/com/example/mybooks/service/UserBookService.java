@@ -28,28 +28,24 @@ public class UserBookService
     {
         if(userRepository.findById(userId).isPresent())
         {
-            // Even though our front end doesn't allow the user to enter these fields we're leaving the checks
-            // for any body using the API that may want the added functionality
-//            if(book.getDescription() == null || book.getDescription().equals(""))
-//            {
-//                book.setDescription(new OpenLibService().bookDescription(book.getTitle()));
-//            }
-//
-//            if(book.getAuthor() == null || book.getAuthor().equals(""))
-//            {
-//                book.setAuthor(new OpenLibService().bookAuthors(book.getTitle()));
-//            }
-//
-//            if(book.getBookCoverLink() == null || book.getBookCoverLink().equals(""))
-//            {
-//                book.setBookCoverLink(new OpenLibService().bookCover(book.getTitle()));
-//            }
-
             String[] bookInfo = new OpenLibClient().callApi(book.getTitle());
 
-            book.setDescription(bookInfo[0]);
-            book.setAuthor(bookInfo[1]);
-            book.setBookCoverLink(bookInfo[2]);
+            // Even though our front end doesn't allow the user to enter these fields we're leaving the checks
+            // for any body using the API that may want the added functionality
+            if(book.getDescription() == null || book.getDescription().equals(""))
+            {
+                book.setDescription(bookInfo[0]);
+            }
+
+            if(book.getAuthor() == null || book.getAuthor().equals(""))
+            {
+                book.setAuthor(bookInfo[1]);
+            }
+
+            if(book.getBookCoverLink() == null || book.getBookCoverLink().equals(""))
+            {
+                book.setBookCoverLink(bookInfo[2]);
+            }
 
             User user = userRepository.findById(userId).get();
             user.getBooks().add(book);

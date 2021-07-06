@@ -18,7 +18,6 @@ public class User
     private List<Book> books;
 
 
-
     public Integer getId()
     {
         return id;
