@@ -1,4 +1,4 @@
-package com.example.mybooks.service;
+package com.example.mybooks.client;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-public class OpenLibService
+public class OpenLibClient
 {
     private Mono<String> googleBookApi(String bookName)
     {

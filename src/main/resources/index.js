@@ -37,10 +37,25 @@ function createNewBook(e){
 
 
 
-function deleteAll(e){
+function deleteUser(e){
     e.preventDefault();
 
-    fetch("http://localhost:8080/expenses",
+    var idNum = document.getElementById("id").value
+        fetch("http://localhost:8080/users/" + idNum,
+        {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json',},
+        }
+    ).then(()=>window.location.reload(true))
+}
+
+
+function deleteBook(e){
+    e.preventDefault();
+
+    var idNum = document.getElementById("userId").value
+    var bookTitle = document.getElementById("title").value
+        fetch("http://localhost:8080/users/" + idNum + "/"+ bookTitle,
         {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',},
