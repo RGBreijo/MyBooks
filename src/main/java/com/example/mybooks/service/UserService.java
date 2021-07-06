@@ -36,10 +36,6 @@ public class UserService
         userRepository.save(user);
     }
 
-    public void deleteById(Integer id){
-        userRepository.deleteById(id);
-    }
-
 
     // delete user
     // update user
