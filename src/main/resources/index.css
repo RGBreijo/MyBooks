@@ -264,3 +264,20 @@ footer{
     margin-top: 1em;
     text-align: center;
 }
+
+.user
+{
+    margin-bottom: 1em;
+}
+
+.userId
+{
+    width: 50px;
+    background-color: blue;
+}
+
+
+#id
+{
+    width: 60px;
+}
