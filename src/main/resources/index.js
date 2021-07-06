@@ -1,8 +1,45 @@
-async function enableButton(){
+
+
+async function enableCreateUserButton()
+{
+
+    console.log("here")
     if (document.getElementById("username").value === ""){
-        document.getElementById("createUserBtn").hidden = true;
+        console.log("inside")
+        document.getElementById("createUserBtn").disabled = true;
     } else{
-        document.getElementById("createUserBtn").hidden = false;
+        console.log("out")
+        document.getElementById("createUserBtn").disabled = false;
+    }
+}
+
+
+
+
+
+
+async function enableDeleteUserBtn()
+{
+    if (document.getElementById("userId").value === ""){
+        document.getElementById("deleteUserBtn").disabled = true;
+    } else{
+        document.getElementById("deleteUserBtn").disabled = false;
+    }
+}
+
+async function enableDeleteBookBtn(){
+    if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
+        document.getElementById("deleteBookBtn").disabled = true;
+    } else{
+        document.getElementById("deleteBookBtn").disabled = false;
+    }
+}
+
+async function enableAddBookBtn(){
+    if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
+        document.getElementById("addBookBtn").disabled = true;
+    } else{
+        document.getElementById("addBookBtn").disabled = false;
     }
 }
 
@@ -44,7 +81,7 @@ function deleteUser(e){
     e.preventDefault();
 
     var idNum = document.getElementById("userId").value
-        fetch("http://localhost:8080/users/" + idNum,
+    fetch("http://localhost:8080/users/" + idNum,
         {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',},
@@ -57,7 +94,7 @@ function deleteBook(e){
 
     var idNum = document.getElementById("userId").value
     var bookTitle = document.getElementById("title").value
-        fetch("http://localhost:8080/users/" + idNum + "/"+ bookTitle,
+    fetch("http://localhost:8080/users/" + idNum + "/"+ bookTitle,
         {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',},
@@ -99,12 +136,10 @@ async function getAllUsers(){
         return (
             `<div class = "userList" >
                 <p> <span class="username">${user.username}</span> Id: ${user.id}</p>
-
                 <div class="bookInfoContainer"> 
                     <div> 
                         ${testPictures(user.books)}
                     </div> 
-
                     <div class="generalInfoContainer"> 
                         ${bookToString(user.books)}
                     </div>
@@ -115,5 +150,13 @@ async function getAllUsers(){
     }).join("");
 }
 
-enableButton();
+document.getElementById("createUserBtn").disabled = true;
+
+
+
+enableCreateUserButton();
+enableDeleteUserBtn();
+enableDeleteBookBtn();
+enableAddBookBtn();
 getAllUsers();
+
