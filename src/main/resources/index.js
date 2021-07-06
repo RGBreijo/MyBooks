@@ -53,7 +53,7 @@ function deleteUser(e){
 function deleteBook(e){
     e.preventDefault();
 
-    var idNum = document.getElementById("id").value
+    var idNum = document.getElementById("userId").value
     var bookTitle = document.getElementById("title").value
         fetch("http://localhost:8080/users/" + idNum + "/"+ bookTitle,
         {

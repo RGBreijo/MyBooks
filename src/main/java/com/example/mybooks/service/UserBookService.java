@@ -1,5 +1,6 @@
 package com.example.mybooks.service;
 
+import com.example.mybooks.client.OpenLibClient;
 import com.example.mybooks.model.Book;
 import com.example.mybooks.model.User;
 import com.example.mybooks.repository.BookRepository;
@@ -44,7 +45,7 @@ public class UserBookService
 //                book.setBookCoverLink(new OpenLibService().bookCover(book.getTitle()));
 //            }
 
-            String[] bookInfo = new OpenLibService().callApi(book.getTitle());
+            String[] bookInfo = new OpenLibClient().callApi(book.getTitle());
 
             book.setDescription(bookInfo[0]);
             book.setAuthor(bookInfo[1]);
