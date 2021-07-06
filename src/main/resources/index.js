@@ -50,25 +50,32 @@ async function enableAddBookBtn(){
 
 async function enableDeleteUserBtn(){
     if (document.getElementById("userId").value === ""){
-        document.getElementById("deleteUserBtn").hidden = true;
+        document.getElementById("deleteUserBtn").disabled = true;
+        document.getElementById("deleteUserBtn").style.opacity = "0.3";
     } else{
-        document.getElementById("deleteUserBtn").hidden = false;
+        document.getElementById("deleteUserBtn").disabled = false;
+        document.getElementById("deleteUserBtn").style.opacity = "1";
+
     }
 }
 
 async function enableDeleteBookBtn(){
     if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
-        document.getElementById("deleteBookBtn").hidden = true;
+        document.getElementById("deleteBookBtn").disabled = true;
+        document.getElementById("deleteBookBtn").style.opacity = "0.3";
     } else{
-        document.getElementById("deleteBookBtn").hidden = false;
+        document.getElementById("deleteBookBtn").disabled = false;
+        document.getElementById("deleteBookBtn").style.opacity = "1";
     }
 }
 
 async function enableAddBookBtn(){
     if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
-        document.getElementById("addBookBtn").hidden = true;
+        document.getElementById("addBookBtn").disabled = true;
+        document.getElementById("addBookBtn").style.opacity = "0.3";
     } else{
-        document.getElementById("addBookBtn").hidden = false;
+        document.getElementById("addBookBtn").disabled = false;
+        document.getElementById("addBookBtn").style.opacity = "1";
     }
 }
 
