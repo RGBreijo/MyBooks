@@ -1,9 +1,8 @@
 
 
-async function enableCreateUserButton()
-{
 
-    console.log("here")
+async function enableCreateUserButton(){
+
     if (document.getElementById("username").value === ""){
         document.getElementById("createUserBtn").style.opacity = "0.3";
         document.getElementById("createUserBtn").disabled = true;
@@ -46,6 +45,30 @@ async function enableAddBookBtn(){
     } else{
         document.getElementById("addBookBtn").disabled = false;
         document.getElementById("addBookBtn").style.opacity = "1";
+    }
+}
+
+async function enableDeleteUserBtn(){
+    if (document.getElementById("userId").value === ""){
+        document.getElementById("deleteUserBtn").hidden = true;
+    } else{
+        document.getElementById("deleteUserBtn").hidden = false;
+    }
+}
+
+async function enableDeleteBookBtn(){
+    if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
+        document.getElementById("deleteBookBtn").hidden = true;
+    } else{
+        document.getElementById("deleteBookBtn").hidden = false;
+    }
+}
+
+async function enableAddBookBtn(){
+    if (document.getElementById("userId").value === "" || document.getElementById("title").value === ""){
+        document.getElementById("addBookBtn").hidden = true;
+    } else{
+        document.getElementById("addBookBtn").hidden = false;
     }
 }
 
@@ -156,8 +179,10 @@ async function getAllUsers(){
     }).join("");
 }
 
+
 document.getElementById("createUserBtn").disabled = true;
 document.getElementById("createUserBtn").style.opacity = "0.3";
+
 
 
 
@@ -166,5 +191,3 @@ enableCreateUserButton();
 enableDeleteUserBtn();
 enableDeleteBookBtn();
 enableAddBookBtn();
-getAllUsers();
-
