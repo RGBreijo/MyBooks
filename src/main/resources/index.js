@@ -40,7 +40,7 @@ function createNewBook(e){
 function deleteUser(e){
     e.preventDefault();
 
-    var idNum = document.getElementById("id").value
+    var idNum = document.getElementById("userId").value
         fetch("http://localhost:8080/users/" + idNum,
         {
             method: 'DELETE',

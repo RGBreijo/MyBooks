@@ -58,13 +58,11 @@ public class UserController
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable Integer id){
         userBookService.deleteAllbyId(id);
-        //userService.deleteById(id);
     }
 
     @Transactional
     @DeleteMapping("users/{id}/{book}")
     public void deleteBook(@PathVariable Integer id, @PathVariable String book){
         userBookService.deleteByTitle(id, book);
-        //userService.findById(id).map(Book -> userBookService.deleteByTitle(id, book))
     }
 }
