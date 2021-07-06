@@ -270,8 +270,21 @@ footer{
     margin-bottom: 1em;
 }
 
+<<<<<<< HEAD
 #userId
+=======
+.userId
+>>>>>>> design2
 {
     width: 50px;
     background-color: blue;
 }
+<<<<<<< HEAD
+=======
+
+
+#id
+{
+    width: 60px;
+}
+>>>>>>> design2
