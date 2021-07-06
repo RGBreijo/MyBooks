@@ -23,6 +23,8 @@ public class OpenLibService
         String URI = "https://www.googleapis.com/books/v1/volumes?q=\"" + bookName +
                 "”&printType=books&key=" + API_KEY;
 
+        System.out.println(URI);
+
         return  webClient.get().uri(URI).retrieve().bodyToMono(String.class);
     }
 
